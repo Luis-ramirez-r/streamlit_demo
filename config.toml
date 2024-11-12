@@ -1,0 +1,57 @@
+# config.toml
+
+[paths]
+models = "/app/models"
+
+interim_data = "./input"
+
+[model_config]
+maintenance_classification_dir = "maintenance_classification"
+
+
+[feature_ranges]
+operation_setting_1 = { min = -0.01, max = 0.01, default = -0.0 }
+operation_setting_2 = { min = -0.0, max = 0.0, default = 0.0 }
+operational_setting_3 = { min = 100.0, max = 100.0, default = 100.0 }
+fan_inlet_temperature_r = { min = 518.67, max = 518.67, default = 518.67 }
+lpc_outlet_temperature_r = { min = 640.21, max = 645.53, default = 642.68 }
+hpc_outlet_temperature_r = { min = 1557.28, max = 1630.67, default = 1590.52 }
+lpt_outlet_temperature_r = { min = 1364.48, max = 1459.26, default = 1408.93 }
+fan_inlet_pressure_psia = { min = 14.62, max = 14.62, default = 14.62 }
+bypass_duct_pressure_psia = { min = 21.6, max = 21.61, default = 21.61 }
+hpc_outlet_pressure_psia = { min = 547.99, max = 557.92, default = 553.37 }
+physical_fan_speed_rpm = { min = 2387.7, max = 2388.76, default = 2388.1 }
+physical_core_speed_rpm = { min = 8954.87, max = 9311.45, default = 9065.24 }
+engine_pressure_ratio = { min = 1.3, max = 1.3, default = 1.3 }
+hpc_outlet_static_pressure_psia = { min = 46.35, max = 49.03, default = 47.54 }
+fuel_flow_to_hpc_outlet_static_pressure_ratio = { min = 517.28, max = 524.79, default = 521.41 }
+fan_conversion_speed_rpm = { min = 2387.68, max = 2388.76, default = 2388.1 }
+core_conversion_speed_rpm = { min = 8041.81, max = 8351.85, default = 8143.75 }
+culvert_ratio = { min = 8.25, max = 8.66, default = 8.44 }
+burner_flow_ratio = { min = 0.03, max = 0.03, default = 0.03 }
+bleed_enthalpy = { min = 384.4, max = 403.6, default = 393.21 }
+fan_speed = { min = 2388.0, max = 2388.0, default = 2388.0 }
+fan_conversion_speed = { min = 100.0, max = 100.0, default = 100.0 }
+high_pressure_turbines_cool_air_flow = { min = 37.75, max = 39.82, default = 38.82 }
+low_pressure_turbines_cool_air_flow = { min = 22.68, max = 23.84, default = 23.29 }
+
+[sensor_groups]
+group1 = [
+    "lpc_outlet_temperature_r",
+    "hpc_outlet_temperature_r",
+    "lpt_outlet_temperature_r",
+    "bypass_duct_pressure_psia",
+    "hpc_outlet_pressure_psia",
+    "physical_fan_speed_rpm",
+    "physical_core_speed_rpm"
+]
+group2 = [
+    "hpc_outlet_static_pressure_psia",
+    "fuel_flow_to_hpc_outlet_static_pressure_ratio",
+    "fan_conversion_speed_rpm",
+    "core_conversion_speed_rpm",
+    "culvert_ratio",
+    "bleed_enthalpy",
+    "high_pressure_turbines_cool_air_flow",
+    "low_pressure_turbines_cool_air_flow"
+]

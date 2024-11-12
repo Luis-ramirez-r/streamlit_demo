@@ -1,0 +1,23 @@
+# Dockerfile.streamlit
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements first to leverage Docker cache
+COPY requirements-streamlit.txt .
+RUN pip install --no-cache-dir -r requirements-streamlit.txt
+
+# Copy application code and configuration
+COPY ./streamlit .
+COPY config.toml .
+
+# Expose the port the app runs on
+EXPOSE 8506
+
+# Command to run the application
+CMD ["streamlit", "run", "streamlit_app.py", "--server.port=8506", "--server.address=0.0.0.0"]

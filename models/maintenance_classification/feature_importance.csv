@@ -1,0 +1,16 @@
+Feature,Importance
+fan_conversion_speed_rpm,6.77611577461226
+physical_core_speed_rpm,6.688433372431122
+physical_fan_speed_rpm,5.344886989212539
+hpc_outlet_static_pressure_psia,4.503783534492794
+fuel_flow_to_hpc_outlet_static_pressure_ratio,4.178561754344276
+core_conversion_speed_rpm,3.880281549262312
+hpc_outlet_pressure_psia,3.411253985032017
+bypass_duct_pressure_psia,3.191365509164992
+culvert_ratio,2.632149478050397
+lpt_outlet_temperature_r,2.4691316615692473
+bleed_enthalpy,1.6713579539232626
+high_pressure_turbines_cool_air_flow,1.624895130876234
+lpc_outlet_temperature_r,1.5806372240151092
+low_pressure_turbines_cool_air_flow,0.9320666306042026
+hpc_outlet_temperature_r,0.8457943935854291

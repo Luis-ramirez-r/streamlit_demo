@@ -1,0 +1,34 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "8505:8505"
+    volumes:
+      - ./models:/app/models:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8505/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - engine-predictor-network
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    ports:
+      - "8506:8506"
+    environment:
+      - API_URL=http://api:8505
+    depends_on:
+      api:
+        condition: service_healthy
+    networks:
+      - engine-predictor-network
+
+networks:
+  engine-predictor-network:
+    driver: bridge
